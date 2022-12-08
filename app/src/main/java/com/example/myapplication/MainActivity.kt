@@ -4,11 +4,16 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mapsBtn: ImageButton
     private lateinit var addBtn: ImageButton
+    private lateinit var buyBtn: ImageButton
+    private lateinit var Buy: Button
+
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         mapsBtn = findViewById(R.id.mapsBtn)
         addBtn = findViewById(R.id.addBtn)
+        buyBtn = findViewById(R.id.buyBtn)
 
         mapsBtn.setOnClickListener {
             val intent = Intent(this, mapActivity::class.java)
@@ -26,6 +32,11 @@ class MainActivity : AppCompatActivity() {
 
         addBtn.setOnClickListener{
             val intent = Intent(this, addItemsActivity::class.java)
+            startActivity(intent)
+        }
+
+        buyBtn.setOnClickListener{
+            val intent = Intent(this, buyActivity::class.java)
             startActivity(intent)
         }
     }

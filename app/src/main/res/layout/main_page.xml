@@ -45,7 +45,7 @@
         android:layout_height="95dp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="238dp"
+        android:layout_marginTop="203dp"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/maps_25" />
 
@@ -56,7 +56,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="26dp"
-        android:layout_marginBottom="213dp"
+        android:layout_marginBottom="266dp"
         android:text="To add new items, click here:"
         android:textSize="16sp" />
 
@@ -66,9 +66,30 @@
         android:layout_height="116dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="78dp"
+        android:layout_marginBottom="159dp"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/_501851_15" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="136dp"
+        android:text="To buy items, click here:"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/buyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="102dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/bag" />
 
 </RelativeLayout>
 
