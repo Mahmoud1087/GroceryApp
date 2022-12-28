@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -7,6 +8,17 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.CAPTURE_AUDIO_OUTPUT"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +27,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".Voice2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".cartActivity"
             android:exported="false">
@@ -33,19 +52,31 @@
         </activity>
         <activity
             android:name=".SignUp"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".buyActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".mapActivity"
             android:exported="false" />
         <activity
             android:name=".addItemsActivity"
             android:exported="false" />
+        <activity
+            android:name=".VoipActivity"
+            android:exported="false" />
+        <activity
+            android:name=".locationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Video"
+            android:exported="false" />
+
+<!--        <activity android:name=".Voice2"-->
+<!--            android:exported="false" />-->
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

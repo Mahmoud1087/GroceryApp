@@ -27,6 +27,7 @@ class addItemsActivity : AppCompatActivity() {
 
     private lateinit var addButton: Button
     private lateinit var backButton: Button
+    private lateinit var addLocBtn: Button
     private lateinit var image: ImageView
     private lateinit var productName: EditText
     private lateinit var productPrice: EditText
@@ -44,6 +45,7 @@ class addItemsActivity : AppCompatActivity() {
 
         addButton = findViewById(R.id.addButton)
         backButton = findViewById(R.id.backButton)
+        addLocBtn = findViewById(R.id.addLocBtn)
         image = findViewById(R.id.image)
         productName = findViewById(R.id.productName)
         productPrice = findViewById(R.id.productPrice)
@@ -61,6 +63,11 @@ class addItemsActivity : AppCompatActivity() {
 
             backButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        addLocBtn.setOnClickListener {
+            val intent = Intent(this, locationActivity::class.java)
             startActivity(intent)
         }
 

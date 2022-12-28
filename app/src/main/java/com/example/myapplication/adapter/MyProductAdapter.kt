@@ -14,6 +14,7 @@ import com.example.myapplication.listener.ICartLoadListener
 import com.example.myapplication.listener.IRecyclerClickListener
 import com.example.myapplication.model.CartModel
 import com.example.myapplication.model.product
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -83,7 +84,7 @@ class MyProductAdapter(
     private fun addToCart(productModel: product) {
         val userCart = FirebaseDatabase.getInstance()
             .getReference("Cart")
-            .child("UNIQUE_USER_ID")
+            .child(FirebaseAuth.getInstance().currentUser?.uid.toString())
 
         userCart.child(productModel.key!!)
             .addListenerForSingleValueEvent(object :ValueEventListener{

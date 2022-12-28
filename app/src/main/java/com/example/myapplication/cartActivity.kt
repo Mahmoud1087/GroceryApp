@@ -13,6 +13,7 @@ import com.example.myapplication.eventBus.UpdateCartEvent
 import com.example.myapplication.listener.ICartLoadListener
 import com.example.myapplication.model.CartModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -63,10 +64,10 @@ class cartActivity : AppCompatActivity(), ICartLoadListener {
             startActivity(intent)
         }
 
-        //buy = findViewById(R.id.buy)
+        //buy items
         binding.buy.setOnClickListener{
             database = FirebaseDatabase.getInstance().getReference("Cart")
-            database.child("UNIQUE_USER_ID").removeValue().addOnSuccessListener {
+            database.child(FirebaseAuth.getInstance().currentUser?.uid.toString()).removeValue().addOnSuccessListener {
                 Toast.makeText(this, "Purchase success", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
                 Toast.makeText(this, "Purchase failed", Toast.LENGTH_SHORT).show()
@@ -78,7 +79,7 @@ class cartActivity : AppCompatActivity(), ICartLoadListener {
         val cartModels: MutableList<CartModel> = ArrayList()
         FirebaseDatabase.getInstance()
             .getReference("Cart")
-            .child("UNIQUE_USER_ID")
+            .child(FirebaseAuth.getInstance().currentUser?.uid.toString())
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for (cartSnapshot in snapshot.children){

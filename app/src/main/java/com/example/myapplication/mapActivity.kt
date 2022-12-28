@@ -13,12 +13,18 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class mapActivity : AppCompatActivity(), OnMapReadyCallback{
 
     lateinit var mapFragment : SupportMapFragment
     lateinit var googleMap: GoogleMap
     private lateinit var backButton: Button
+
+    var database = FirebaseDatabase.getInstance().reference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +56,27 @@ class mapActivity : AppCompatActivity(), OnMapReadyCallback{
             googleMap.isMyLocationEnabled = true
             val location = LatLng(29.986618,31.439071)
             googleMap.addMarker(MarkerOptions().position(location).title("My location"))
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 5f))
+
+            database.child("Locations").addListenerForSingleValueEvent(object: ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (s in snapshot.children){
+                        val lat = s.child("lat").value as Double
+                       val long =  s.child("long").value as Double
+
+                        val loc= LatLng(lat , long)
+
+                        googleMap.addMarker(MarkerOptions().position(location).title("Supermarket"))
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 5f))
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+
+
         })
 
         backButton.setOnClickListener {

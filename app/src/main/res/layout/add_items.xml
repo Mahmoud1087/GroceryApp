@@ -71,10 +71,23 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="532dp"
-        android:layout_marginEnd="162dp"
+        android:layout_marginTop="472dp"
+        android:layout_marginEnd="163dp"
         android:backgroundTint="#70917966"
         android:text="Add"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/addLocBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="548dp"
+        android:layout_marginEnd="131dp"
+        android:backgroundTint="#70917966"
+        android:text="Add Location"
         android:textColor="@color/black" />
 
     <Button
@@ -126,11 +139,12 @@
         android:id="@+id/image"
         android:layout_width="198dp"
         android:layout_height="163dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="151dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="173dp"
         android:clickable="true"
-        app:srcCompat="@drawable/upload"
-        android:focusable="true" />
+        android:focusable="true"
+        app:srcCompat="@drawable/upload" />
 
 </RelativeLayout>

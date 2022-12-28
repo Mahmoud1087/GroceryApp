@@ -40,6 +40,16 @@
         android:textSize="16sp" />
 
     <ImageButton
+        android:id="@+id/callBtn"
+        android:layout_width="112dp"
+        android:layout_height="95dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="7dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/ic_baseline_call_24" />
+
+    <ImageButton
         android:id="@+id/mapsBtn"
         android:layout_width="112dp"
         android:layout_height="95dp"

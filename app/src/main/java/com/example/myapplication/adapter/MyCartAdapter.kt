@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.eventBus.UpdateCartEvent
 import com.example.myapplication.model.CartModel
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import org.greenrobot.eventbus.EventBus
 
@@ -65,7 +66,7 @@ class MyCartAdapter(
                     notifyItemRemoved(position)
                     FirebaseDatabase.getInstance()
                         .getReference("Cart")
-                        .child("UNIQUE_USER_ID")
+                        .child(FirebaseAuth.getInstance().currentUser?.uid.toString())
                         .child(cartModelList[position].key!!)
                         .removeValue()
                         .addOnSuccessListener { EventBus.getDefault().postSticky(UpdateCartEvent()) }
@@ -95,7 +96,7 @@ class MyCartAdapter(
     private fun updateFirebase(cartModel: CartModel) {
         FirebaseDatabase.getInstance()
             .getReference("Cart")
-            .child("UNIQUE_USER_ID")
+            .child(FirebaseAuth.getInstance().currentUser?.uid.toString())
             .child(cartModel.key!!)
             .setValue(cartModel)
             .addOnSuccessListener { EventBus.getDefault().postSticky(UpdateCartEvent()) }

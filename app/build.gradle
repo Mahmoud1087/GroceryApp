@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -64,4 +64,7 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.2.0'
 
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
+
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.26'
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0'
 }
